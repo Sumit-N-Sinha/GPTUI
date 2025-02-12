@@ -33,7 +33,7 @@ export class AppComponent {
       this.newMessage = '';
 
       // Send the user's message to the backend
-      fetch('http://localhost:5000/gpt', {
+      fetch('https://gpt-production-da78.up.railway.app/gpt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
