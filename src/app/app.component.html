@@ -1,0 +1,20 @@
+<div class="chat-container">
+  <div class="chat-header p-shadow-3">ChatGPT</div>
+
+  <div class="chat-content">
+    <div *ngFor="let message of messages" class="message-row">
+      <div [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+        <p-avatar *ngIf="message.sender === 'bot'" icon="pi pi-robot" class="bot-avatar"></p-avatar>
+        <div class="message-content">
+          <div class="message-text">{{ message.text }}</div>
+          <small>{{ message.time | date:'short' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" pInputText [(ngModel)]="newMessage" placeholder="Type a message" (keyup.enter)="sendMessage()" />
+    <button pButton type="button" icon="pi pi-send" (click)="sendMessage()"></button>
+  </div>
+</div>
