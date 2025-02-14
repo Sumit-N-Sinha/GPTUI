@@ -6,7 +6,7 @@
       <div [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
         <p-avatar *ngIf="message.sender === 'bot'" icon="pi pi-robot" class="bot-avatar"></p-avatar>
         <div class="message-content">
-          <div class="message-text">{{ message.text }}</div>
+          <div class="message-bubble">{{ message.text }}</div>
           <small>{{ message.time | date:'short' }}</small>
         </div>
       </div>
@@ -14,7 +14,17 @@
   </div>
 
   <div class="chat-footer">
-    <input type="text" pInputText [(ngModel)]="newMessage" placeholder="Type a message" (keyup.enter)="sendMessage()" />
-    <button pButton type="button" icon="pi pi-send" (click)="sendMessage()"></button>
+    <p-fileUpload 
+  #fileUpload
+  [style]="{'max-height': '40px'}"
+  name="file" 
+  mode="basic"
+  class="file-upload-container"
+  chooseIcon="pi pi-image"
+  (onRemove)="onRemove($event)"
+  (onUpload)="onUploadd($event)"
+  (uploadHandler)="myUploader($event)"></p-fileUpload>
+    <textarea rows="5" cols="30" pInputTextarea [style]="{'width' : '100%'}" [(ngModel)]="newMessage" placeholder="Type a message"></textarea>
+    <p-button [raised]="true" severity="info" icon="pi pi-send" (click)="sendMessage()"></p-button>
   </div>
 </div>

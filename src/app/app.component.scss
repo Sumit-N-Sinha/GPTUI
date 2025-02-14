@@ -20,6 +20,8 @@
     flex: 1;
     padding: 10px;
     overflow-y: auto;
+    min-height: 67vh;
+    max-height: 67vh;
 }
 
 .message-row {
@@ -61,3 +63,12 @@
     padding: 10px;
     border-top: 1px solid #ddd;
 }
+
+/* Common styles for message bubbles */
+.message-bubble {
+    border-radius: 20px;
+    margin: 5px;
+    word-wrap: break-word;
+    white-space: pre-line;
+    font-size: 16px;
+  }
