@@ -1,0 +1,78 @@
+.chat-container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #007ad9;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.chat-content {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    min-height: 67vh;
+    max-height: 67vh;
+}
+
+.message-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-message {
+    margin-left: auto;
+    max-width: 75%;
+    text-align: right;
+}
+
+.bot-message {
+    margin-right: auto;
+    max-width: 75%;
+}
+
+.message-content {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.user-message .message-content {
+    background-color: #e0f7fa;
+}
+
+.bot-message .message-content {
+    background-color: #e3f2fd;
+}
+
+.message-text {
+    margin: 0;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* Common styles for message bubbles */
+.message-bubble {
+    border-radius: 20px;
+    margin: 5px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-size: 16px;
+  }
+
+  ::ng-deep .p-dropdown-items{
+    padding-left: 0%;
+  }

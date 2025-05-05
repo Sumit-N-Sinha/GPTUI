@@ -1,0 +1,25 @@
+<div class="chat-container">
+  <div class="chat-header p-shadow-3">SumitGPT</div>
+
+  <div class="chat-content">
+    <div *ngFor="let message of messages" class="message-row">
+      <div [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+        <p-avatar *ngIf="message.sender === 'bot'" icon="pi pi-robot" class="bot-avatar"></p-avatar>
+        <div class="message-content">
+          <div class="message-bubble">{{ message.text }}</div>
+          <small>{{ message.time | date:'short' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <p-fileUpload #fileUpload [style]="{'max-height': '40px'}" name="file" mode="basic" class="file-upload-container"
+      chooseIcon="pi pi-image" (onRemove)="onRemove($event)" (onUpload)="onUploadd($event)"
+      (onSelect)="myUploader($event)"></p-fileUpload>
+    <p-dropdown [options]="models" [(ngModel)]="selectedModel" optionLabel="name" placeholder="Select a Model" />
+    <textarea rows="5" cols="30" pInputTextarea [style]="{'width' : '100%'}" [(ngModel)]="newMessage"
+      placeholder="Type a message"></textarea>
+    <p-button [raised]="true" severity="danger" icon="pi pi-send" (onClick)="sendMessage()"></p-button>
+  </div>
+</div>
