@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
       // }
     };
     console.log(requestBody);
-    this.http.post('http://localhost:5000/gpt', formData)
+    this.http.post('https://gpt-production-da78.up.railway.app/gpt', formData)
       .subscribe(response => {
         console.log(response);
         this.previousMessage = this.message; // update previous message
